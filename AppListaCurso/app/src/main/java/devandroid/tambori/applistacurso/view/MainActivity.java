@@ -2,6 +2,8 @@ package devandroid.tambori.applistacurso.view;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Button;
+import android.widget.EditText;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,6 +19,13 @@ public class MainActivity extends AppCompatActivity {
     Pessoa pessoa;
 
     String dadosPessoa;
+    EditText editPrimeiroNome;
+    EditText editSobreNomeAluno;
+    EditText editNomeCurso;
+    EditText editTelefoneContato;
+    Button btnLimpar;
+    Button btnSalvar;
+    Button btnFinalizar;
 
 
     @Override
@@ -30,6 +39,23 @@ public class MainActivity extends AppCompatActivity {
             pessoa.setSobreNome("Tambori");
             pessoa.setCursoDesejado("android");
             pessoa.setTelefoneContato("1899999");
+
+            editPrimeiroNome = findViewById(R.id.editPrimeiroNome);
+            editSobreNomeAluno = findViewById(R.id.editSobreNomeAluno);
+            editNomeCurso = findViewById(R.id.editNomeCurso);
+            editTelefoneContato = findViewById(R.id.editTelefoneContato);
+
+            btnLimpar = findViewById(R.id.btnLimpar);
+            btnSalvar = findViewById(R.id.btnSalvar);
+            btnFinalizar = findViewById(R.id.btnFinalizar);
+
+            editPrimeiroNome.setText(pessoa.getPrimeiroNome());
+            editSobreNomeAluno.setText(pessoa.getSobreNome());
+            editNomeCurso.setText(pessoa.getCursoDesejado());
+            editTelefoneContato.setText(pessoa.getTelefoneContato());
+
+
+
 
             dadosPessoa = " Primeiro nome: ";
             dadosPessoa += pessoa.getPrimeiroNome();
