@@ -14,6 +14,10 @@ import devandroid.tambori.applistacurso.model.Pessoa;
 public class MainActivity extends AppCompatActivity {
 
     Pessoa pessoa;
+
+    String dadosPessoa;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,5 +25,22 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
             pessoa = new Pessoa();
+            pessoa.setPrimeiroNome("willian");
+            pessoa.setSobreNome("Tambori");
+            pessoa.setCursoDesejado("android");
+            pessoa.setTelefoneContato("1899999");
+
+            dadosPessoa = " Primeiro nome: ";
+            dadosPessoa += pessoa.getPrimeiroNome();
+            dadosPessoa = " Sobrenome: ";
+            dadosPessoa += pessoa.getSobreNome();
+            dadosPessoa += " Curso Desejado: ";
+            dadosPessoa += pessoa.getCursoDesejado();
+            dadosPessoa += " telefone de Contato: ";
+            dadosPessoa += pessoa.getTelefoneContato();
+
+            int parada = 0;
+
+
     }
 }
