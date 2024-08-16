@@ -1,6 +1,7 @@
 package devandroid.tambori.applistacurso.view;
 
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -39,7 +40,9 @@ public class MainActivity extends AppCompatActivity {
             dadosPessoa += " telefone de Contato: ";
             dadosPessoa += pessoa.getTelefoneContato();
 
-            int parada = 0;
+        Log.i("POOAndroid"," Objeto Pessoa: "+pessoa.toString());
+
+            //int parada = 0;
 
 
     }
