@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".view.MainActivity">
 
     <TextView
         android:id="@+id/textTitulo"
@@ -76,25 +76,26 @@
         android:id="@+id/btnLimpar"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="24dp"
         android:layout_marginBottom="40dp"
         android:text="@string/txt_button_limpar"
         app:layout_constraintBottom_toTopOf="@+id/btnFinalizar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTelContato"
-        app:layout_constraintVertical_bias="0.837" />
+        app:layout_constraintVertical_bias="0.797" />
 
     <Button
         android:id="@+id/btnSalvar"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
-        android:layout_marginStart="196dp"
         android:layout_marginBottom="40dp"
         android:text="@string/txt_button_salvar"
         app:layout_constraintBottom_toTopOf="@+id/btnFinalizar"
-        app:layout_constraintStart_toEndOf="@+id/btnLimpar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.946"
+        app:layout_constraintStart_toStartOf="@+id/btnLimpar"
         app:layout_constraintTop_toBottomOf="@+id/editTelContato"
-        app:layout_constraintVertical_bias="0.837" />
+        app:layout_constraintVertical_bias="0.797" />
 
     <Button
         android:id="@+id/btnFinalizar"
