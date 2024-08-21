@@ -2,8 +2,10 @@ package devandroid.tambori.applistacurso.view;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -54,17 +56,37 @@ public class MainActivity extends AppCompatActivity {
             editNomeCurso.setText(pessoa.getCursoDesejado());
             editTelefoneContato.setText(pessoa.getTelefoneContato());
 
+            btnLimpar.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    editPrimeiroNome.setText("");
+                    editSobreNomeAluno.setText("");
+                    editTelefoneContato.setText("");
+                    editNomeCurso.setText("");
 
+                }
+            });
 
+            btnFinalizar.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(MainActivity.this,"Volte Sempre",Toast.LENGTH_LONG).show();
+                    finish();
+                }
+            });
 
-            dadosPessoa = " Primeiro nome: ";
-            dadosPessoa += pessoa.getPrimeiroNome();
-            dadosPessoa = " Sobrenome: ";
-            dadosPessoa += pessoa.getSobreNome();
-            dadosPessoa += " Curso Desejado: ";
-            dadosPessoa += pessoa.getCursoDesejado();
-            dadosPessoa += " telefone de Contato: ";
-            dadosPessoa += pessoa.getTelefoneContato();
+            btnSalvar.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    pessoa.setPrimeiroNome(editPrimeiroNome.getText().toString());
+                    pessoa.setSobreNome(editSobreNomeAluno.getText().toString());
+                    pessoa.setCursoDesejado(editNomeCurso.getText().toString());
+                    pessoa.setTelefoneContato(editTelefoneContato.getText().toString());
+
+                    Toast.makeText(MainActivity.this,"Salvo "+pessoa.toString(),Toast.LENGTH_LONG).show();
+                    finish();
+                }
+            });
 
         Log.i("POOAndroid"," Objeto Pessoa: "+pessoa.toString());
 
