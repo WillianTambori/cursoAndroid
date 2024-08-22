@@ -14,11 +14,13 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import devandroid.tambori.applistacurso.R;
+import devandroid.tambori.applistacurso.controller.PessoaController;
 import devandroid.tambori.applistacurso.model.Pessoa;
 
 public class MainActivity extends AppCompatActivity {
 
     Pessoa pessoa;
+    PessoaController controller;
 
     String dadosPessoa;
     EditText editPrimeiroNome;
@@ -36,7 +38,10 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
+            controller = new PessoaController();
+            controller.toString();
             pessoa = new Pessoa();
+
             pessoa.setPrimeiroNome("willian");
             pessoa.setSobreNome("Tambori");
             pessoa.setCursoDesejado("android");
@@ -84,6 +89,8 @@ public class MainActivity extends AppCompatActivity {
                     pessoa.setTelefoneContato(editTelefoneContato.getText().toString());
 
                     Toast.makeText(MainActivity.this,"Salvo "+pessoa.toString(),Toast.LENGTH_LONG).show();
+
+                    controller.salvar(pessoa);
                     finish();
                 }
             });
