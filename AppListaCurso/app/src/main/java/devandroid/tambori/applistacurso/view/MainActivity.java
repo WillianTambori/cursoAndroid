@@ -49,15 +49,25 @@ public class MainActivity extends AppCompatActivity {
         controller.toString();
         pessoa = new Pessoa();
 
-        pessoa.setPrimeiroNome("willian");
-        pessoa.setSobreNome("Tambori");
-        pessoa.setCursoDesejado("android");
-        pessoa.setTelefoneContato("1899999");
+        pessoa.setPrimeiroNome(preferences.getString("primeiroNome",""));
+        pessoa.setSobreNome(preferences.getString("sobreNome",""));
+        pessoa.setCursoDesejado(preferences.getString("nomeCurso",""));
+        pessoa.setTelefoneContato(preferences.getString("telefoneContato",""));
+
+//        pessoa.setPrimeiroNome("willian");
+//        pessoa.setSobreNome("Tambori");
+//        pessoa.setCursoDesejado("android");
+//        pessoa.setTelefoneContato("1899999");
 
         editPrimeiroNome = findViewById(R.id.editPrimeiroNome);
         editSobreNomeAluno = findViewById(R.id.editSobreNomeAluno);
         editNomeCurso = findViewById(R.id.editNomeCurso);
         editTelefoneContato = findViewById(R.id.editTelefoneContato);
+
+        editPrimeiroNome.setText(pessoa.getPrimeiroNome());
+        editSobreNomeAluno.setText(pessoa.getSobreNome());
+        editNomeCurso.setText(pessoa.getCursoDesejado());
+        editTelefoneContato.setText(pessoa.getTelefoneContato());
 
         btnLimpar = findViewById(R.id.btnLimpar);
         btnSalvar = findViewById(R.id.btnSalvar);
