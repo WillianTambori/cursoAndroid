@@ -76,13 +76,13 @@
         android:id="@+id/btnLimpar"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="16dp"
         android:layout_marginBottom="40dp"
         android:text="@string/txt_button_limpar"
         app:layout_constraintBottom_toTopOf="@+id/btnFinalizar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTelefoneContato"
-        app:layout_constraintVertical_bias="0.797" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/btnSalvar"
@@ -92,10 +92,10 @@
         android:text="@string/txt_button_salvar"
         app:layout_constraintBottom_toTopOf="@+id/btnFinalizar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.946"
+        app:layout_constraintHorizontal_bias="0.947"
         app:layout_constraintStart_toStartOf="@+id/btnLimpar"
         app:layout_constraintTop_toBottomOf="@+id/editTelefoneContato"
-        app:layout_constraintVertical_bias="0.797" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/btnFinalizar"
@@ -104,6 +104,32 @@
         android:layout_margin="16dp"
         android:text="@string/txt_button_finalizar"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTelefoneContato"
+        app:layout_constraintVertical_bias="0.983" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnFinalizar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTelefoneContato"
+        app:layout_constraintVertical_bias="0.184" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="selecione um curso..."
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/spinner"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTelefoneContato" />
