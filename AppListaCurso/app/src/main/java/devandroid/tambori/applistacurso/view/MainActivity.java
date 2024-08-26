@@ -20,12 +20,11 @@ import devandroid.tambori.applistacurso.model.Pessoa;
 
 public class MainActivity extends AppCompatActivity {
 
-    SharedPreferences preferences;
-    public static final String NOME_PREFERENCES = "pref_listavip";
+
 
     Pessoa pessoa;
     PessoaController controller;
-    SharedPreferences.Editor listaVip;
+
 
     String dadosPessoa;
     EditText editPrimeiroNome;
@@ -43,17 +42,13 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
-        preferences = getSharedPreferences(NOME_PREFERENCES,0);
-        listaVip = preferences.edit();
 
-        controller = new PessoaController();
+
+        controller = new PessoaController(MainActivity.this);
         controller.toString();
         pessoa = new Pessoa();
+        controller.buscar(pessoa);
 
-        pessoa.setPrimeiroNome(preferences.getString("primeiroNome",""));
-        pessoa.setSobreNome(preferences.getString("sobreNome",""));
-        pessoa.setCursoDesejado(preferences.getString("nomeCurso",""));
-        pessoa.setTelefoneContato(preferences.getString("telefoneContato",""));
 
 //        pessoa.setPrimeiroNome("willian");
 //        pessoa.setSobreNome("Tambori");
@@ -87,8 +82,7 @@ public class MainActivity extends AppCompatActivity {
                 editTelefoneContato.setText("");
                 editNomeCurso.setText("");
 
-                listaVip.clear();
-                listaVip.apply();
+                controller.limpar();
 
             }
         });
@@ -111,11 +105,6 @@ public class MainActivity extends AppCompatActivity {
 
                 Toast.makeText(MainActivity.this, "Salvo " + pessoa.toString(), Toast.LENGTH_LONG).show();
 
-                listaVip.putString("primeiroNome",pessoa.getPrimeiroNome());
-                listaVip.putString("sobreNome",pessoa.getSobreNome());
-                listaVip.putString("nomeCurso",pessoa.getCursoDesejado());
-                listaVip.putString("telefoneContato",pessoa.getTelefoneContato());
-                listaVip.apply();
 
                 controller.salvar(pessoa);
                 finish();
