@@ -14,17 +14,22 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.List;
+
 import devandroid.tambori.applistacurso.R;
+import devandroid.tambori.applistacurso.controller.CursoController;
 import devandroid.tambori.applistacurso.controller.PessoaController;
+import devandroid.tambori.applistacurso.model.Curso;
 import devandroid.tambori.applistacurso.model.Pessoa;
 
 public class MainActivity extends AppCompatActivity {
 
 
+    PessoaController controller;
+    CursoController cursoController;
 
     Pessoa pessoa;
-    PessoaController controller;
-
+    List<Curso>  listaDeCursos;
 
     String dadosPessoa;
     EditText editPrimeiroNome;
@@ -42,13 +47,15 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
-
-
         controller = new PessoaController(MainActivity.this);
         controller.toString();
+
+        cursoController = new CursoController();
+        listaDeCursos = cursoController.getListaDeCursos();
+
+
         pessoa = new Pessoa();
         controller.buscar(pessoa);
-
 
 //        pessoa.setPrimeiroNome("willian");
 //        pessoa.setSobreNome("Tambori");
