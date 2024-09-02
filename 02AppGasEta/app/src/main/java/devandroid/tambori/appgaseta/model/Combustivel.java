@@ -21,8 +21,8 @@ public class Combustivel {
         this.recomendacao = recomendacao;
     }
 
-    public double getPrecoDoCombustivel() {
-        return precoDoCombustivel;
+    public float getPrecoDoCombustivel() {
+        return (float) precoDoCombustivel;
     }
 
     public void setPrecoDoCombustivel(double precoDoCombustivel) {
