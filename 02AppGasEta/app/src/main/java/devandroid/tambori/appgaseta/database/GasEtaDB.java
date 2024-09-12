@@ -16,9 +16,7 @@ import devandroid.tambori.appgaseta.model.Combustivel;
 public class GasEtaDB extends SQLiteOpenHelper {
     private static final String DB_NAME = "gaseta_db";
     private static final int DB_VERSION = 1;
-
     Cursor cursor;
-
     SQLiteDatabase db;
 
 
@@ -48,6 +46,7 @@ public class GasEtaDB extends SQLiteOpenHelper {
 
         db.insert(tabela,null,dados);
     }
+
     public List<Combustivel> listarDados(){
         List<Combustivel> lista = new ArrayList<>();
         // representa um registro que está salv na tabela
@@ -75,4 +74,16 @@ public class GasEtaDB extends SQLiteOpenHelper {
         }
         return  lista;
     }
+
+    public void alterarObjeto(String tabela, ContentValues dados){
+
+        int id = dados.getAsInteger("id");
+
+        db.update(tabela,dados,"id=?", new String[]{Integer.toString(id)});
+    }
+    public void deletarObjeto(String tabela, int id){
+
+        db.delete(tabela,"id=?",new String[]{Integer.toString(id)});
+    }
+
 }
