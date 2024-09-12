@@ -1,9 +1,19 @@
 package devandroid.tambori.appgaseta.model;
 
 public class Combustivel {
+
+    private int id;
     private String nomeDoCombustivel;
     private String recomendacao;
     private double precoDoCombustivel;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getNomeDoCombustivel() {
         return nomeDoCombustivel;
@@ -21,8 +31,8 @@ public class Combustivel {
         this.recomendacao = recomendacao;
     }
 
-    public float getPrecoDoCombustivel() {
-        return (float) precoDoCombustivel;
+    public double getPrecoDoCombustivel() {
+        return precoDoCombustivel;
     }
 
     public void setPrecoDoCombustivel(double precoDoCombustivel) {
