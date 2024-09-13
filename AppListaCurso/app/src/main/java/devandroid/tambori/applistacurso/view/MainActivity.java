@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         pessoa = new Pessoa();
-        controller.buscar(pessoa);
+        controller.buscarDadosSharedPreferences(pessoa);
 
 //        pessoa.setPrimeiroNome("willian");
 //        pessoa.setSobreNome("Tambori");

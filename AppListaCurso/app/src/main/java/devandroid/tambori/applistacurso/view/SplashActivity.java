@@ -11,6 +11,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import devandroid.tambori.applistacurso.R;
+import devandroid.tambori.applistacurso.database.ListaVipDB;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -18,9 +19,11 @@ public class SplashActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+        super.onCreate(savedInstanceState)
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_splash);
+
+        ListaVipDB db = new ListaVipDB(SplashActivity.this);
 
         comutarTelaSplash();
     }
