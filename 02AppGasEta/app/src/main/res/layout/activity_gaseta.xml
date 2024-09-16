@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/estrada"
     tools:context=".view.MainActivity">
 
     <ScrollView
@@ -25,6 +26,7 @@
                 android:layout_marginTop="48dp"
                 android:layout_marginEnd="16dp"
                 android:gravity="center_horizontal"
+                android:textColor="@color/white"
                 android:text="@string/txt_titulo"
                 android:textSize="24sp"
                 android:textStyle="bold" />
@@ -52,6 +54,8 @@
                     android:layout_marginEnd="48dp"
                     android:ems="10"
                     android:hint="@string/txt_hint_edit_gasolina"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
                     android:inputType="numberDecimal" />
 
 
@@ -64,6 +68,8 @@
                     android:layout_marginEnd="48dp"
                     android:ems="10"
                     android:hint="@string/txt_hint_edit_etanol"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
                     android:inputType="numberDecimal" />
             </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -85,6 +91,7 @@
                 android:layout_marginEnd="16dp"
                 android:gravity="center_horizontal"
                 android:text="@string/txt_resultado"
+                android:textColor="@color/white"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
@@ -106,6 +113,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
                 android:enabled="false"
+                android:textColor="@color/white"
                 android:text="@string/txt_button_Salvar" />
 
 
