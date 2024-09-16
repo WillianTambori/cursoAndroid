@@ -2,6 +2,7 @@ package devandroid.tambori.applistacurso.model;
 
 public class Pessoa {
 
+    private int id;
     private String primeiroNome;
     private String sobreNome;
     private String cursoDesejado;
@@ -9,6 +10,14 @@ public class Pessoa {
 
     public Pessoa(){
 
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getPrimeiroNome() {
