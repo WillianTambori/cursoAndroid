@@ -16,6 +16,7 @@ import app.modelo.meusclientes.R;
 public class AdicionarClienteFragment extends Fragment {
 
     View view;
+    TextView txtTitulo;
 
     public AdicionarClienteFragment() {
     }
@@ -33,7 +34,19 @@ public class AdicionarClienteFragment extends Fragment {
 
         view =  inflater.inflate(R.layout.fragment_adicionar_cliente, container, false);
 
+        iniciarComponentesDeLayout();
+
+
         return view;
+    }
+
+    /**
+     * INICIALIZAR OS COMPONENTES DA TELA/LAYOUT
+     * para adicionar os clientes
+     */
+    private void iniciarComponentesDeLayout() {
+        txtTitulo = view.findViewById(R.id.txtTitulo);
+        txtTitulo.setText(R.string.novoCliente);
     }
 
 

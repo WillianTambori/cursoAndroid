@@ -16,4 +16,21 @@
     <!-- Opções do meu lateral principal-->
     <string name="action_settings">Sair</string>
     <string name="meu_perfil">Meu Perfil</string>
+
+    <!-- Texto para o layout adicionar novo cliente -->
+    <string name="novoCliente">Adicionar novo Cliente</string>
+    <string name="termos_de_uso">Termos De Uso</string>
+    <string name="salvar">Salvar</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="nome_completo">Nome Completo</string>
+    <string name="telefone">Telefone</string>
+    <string name="cep">Cep</string>
+    <string name="logradouro">Logradouro</string>
+    <string name="numero">Numero</string>
+    <string name="bairro">Bairro</string>
+    <string name="cidade">Cidade</string>
+    <string name="estado">Estado</string>
+    <string name="email">Email</string>
+
+
 </resources>
