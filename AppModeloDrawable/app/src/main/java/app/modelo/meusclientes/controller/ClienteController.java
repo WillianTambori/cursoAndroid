@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.util.Log;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import app.modelo.meusclientes.api.AppUtil;
@@ -33,16 +34,16 @@ public class ClienteController extends AppDataBase implements ICrud<Cliente> {
         // é gerada automaticamente pelo SQLite a cada
         // novo registro adicionado
         // SQL ->>> INSERT INTO TABLE (... ... .. ) VALUES (### ### ###)
-        dadoDoObjeto.put(ClienteDataModel.NOME,obj.getNome());
-        dadoDoObjeto.put(ClienteDataModel.TELEFONE,obj.getTelefone());
-        dadoDoObjeto.put(ClienteDataModel.EMAIL,obj.getEmail());
-        dadoDoObjeto.put(ClienteDataModel.CEP,obj.getCep());
-        dadoDoObjeto.put(ClienteDataModel.LOGRADOURO,obj.getLogradouro());
-        dadoDoObjeto.put(ClienteDataModel.NUMERO,obj.getNumero());
-        dadoDoObjeto.put(ClienteDataModel.BAIRRO,obj.getBairro());
-        dadoDoObjeto.put(ClienteDataModel.CIDADE,obj.getCidade());
-        dadoDoObjeto.put(ClienteDataModel.ESTADO,obj.getEstado());
-        dadoDoObjeto.put(ClienteDataModel.TERMOS_DE_USO,obj.isTermosDeUso());
+        dadoDoObjeto.put(ClienteDataModel.NOME, obj.getNome());
+        dadoDoObjeto.put(ClienteDataModel.TELEFONE, obj.getTelefone());
+        dadoDoObjeto.put(ClienteDataModel.EMAIL, obj.getEmail());
+        dadoDoObjeto.put(ClienteDataModel.CEP, obj.getCep());
+        dadoDoObjeto.put(ClienteDataModel.LOGRADOURO, obj.getLogradouro());
+        dadoDoObjeto.put(ClienteDataModel.NUMERO, obj.getNumero());
+        dadoDoObjeto.put(ClienteDataModel.BAIRRO, obj.getBairro());
+        dadoDoObjeto.put(ClienteDataModel.CIDADE, obj.getCidade());
+        dadoDoObjeto.put(ClienteDataModel.ESTADO, obj.getEstado());
+        dadoDoObjeto.put(ClienteDataModel.TERMOS_DE_USO, obj.isTermosDeUso());
 
         // Enviar os dados (dadoDoObjeto) para a classe AppDatabase
         // utilizando um método capaz de adicionar o OBJ no banco de
@@ -56,7 +57,7 @@ public class ClienteController extends AppDataBase implements ICrud<Cliente> {
 
     @Override
     public boolean deletar(int id) {
-        return deleteByID(ClienteDataModel.TABELA,id);
+        return deleteByID(ClienteDataModel.TABELA, id);
 
     }
 
@@ -71,23 +72,23 @@ public class ClienteController extends AppDataBase implements ICrud<Cliente> {
         // novo registro adicionado
         // Alterar
         // SQL ->>> UPDATE
-        dadoDoObjeto.put(ClienteDataModel.NOME,obj.getNome());
-        dadoDoObjeto.put(ClienteDataModel.TELEFONE,obj.getTelefone());
-        dadoDoObjeto.put(ClienteDataModel.EMAIL,obj.getEmail());
-        dadoDoObjeto.put(ClienteDataModel.CEP,obj.getCep());
-        dadoDoObjeto.put(ClienteDataModel.LOGRADOURO,obj.getLogradouro());
-        dadoDoObjeto.put(ClienteDataModel.NUMERO,obj.getNumero());
-        dadoDoObjeto.put(ClienteDataModel.BAIRRO,obj.getBairro());
-        dadoDoObjeto.put(ClienteDataModel.CIDADE,obj.getCidade());
-        dadoDoObjeto.put(ClienteDataModel.ESTADO,obj.getEstado());
-        dadoDoObjeto.put(ClienteDataModel.TERMOS_DE_USO,obj.isTermosDeUso());
+        dadoDoObjeto.put(ClienteDataModel.NOME, obj.getNome());
+        dadoDoObjeto.put(ClienteDataModel.TELEFONE, obj.getTelefone());
+        dadoDoObjeto.put(ClienteDataModel.EMAIL, obj.getEmail());
+        dadoDoObjeto.put(ClienteDataModel.CEP, obj.getCep());
+        dadoDoObjeto.put(ClienteDataModel.LOGRADOURO, obj.getLogradouro());
+        dadoDoObjeto.put(ClienteDataModel.NUMERO, obj.getNumero());
+        dadoDoObjeto.put(ClienteDataModel.BAIRRO, obj.getBairro());
+        dadoDoObjeto.put(ClienteDataModel.CIDADE, obj.getCidade());
+        dadoDoObjeto.put(ClienteDataModel.ESTADO, obj.getEstado());
+        dadoDoObjeto.put(ClienteDataModel.TERMOS_DE_USO, obj.isTermosDeUso());
 
         // Enviar os dados (dadoDoObjeto) para a classe AppDatabase
         // utilizando um método capaz de alterar o OBJ no banco de
         // dados, tabela qualquer uma (Cliente), respeitando o ID
         // ou PK (Primary Key)
 
-        return update(ClienteDataModel.TABELA,dadoDoObjeto);
+        return update(ClienteDataModel.TABELA, dadoDoObjeto);
 
     }
 
@@ -96,6 +97,16 @@ public class ClienteController extends AppDataBase implements ICrud<Cliente> {
 
         return getAllClientes(ClienteDataModel.TABELA);
 
+    }
+
+    public List<String> gerarListaDeClientesListView(){
+
+        List<String> clientes = new ArrayList<>();
+        for (Cliente obj: listar()){
+            clientes.add(obj.getId()+", "+obj.getNome());
+        }
+
+        return  clientes;
     }
 
 }

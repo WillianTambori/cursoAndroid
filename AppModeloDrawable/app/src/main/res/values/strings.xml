@@ -5,11 +5,16 @@
     <string name="nav_header_title">Cliente</string>
     <string name="nav_header_subtitle">Profº Marco Maddo</string>
     <string name="nav_header_desc">Navigation header</string>
+
     <string name="modelo_fragment">Fragmento Modelo</string>
+    <string name="listar_clientes_fragment">Lista de Clientes</string>
+
 
     <!-- Opções do meu lateral Drawer-->
-    <string name="fragmento_preto">Fragmento Preto</string>
     <string name="fragmento_adicionar_cliente">Adicionar Clientes</string>
+    <string name="fragmento_listar_clientes">Listar clientes</string>
+
+    <string name="fragmento_preto">Fragmento Preto</string>
     <string name="fragmento_vermelho">Fragmento Vermelho</string>
     <string name="fragmento_azul">Fragmento Azul</string>
 
