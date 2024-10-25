@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">Meus Clientes</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Cliente</string>
+    <string name="nav_header_subtitle">Profº Marco Maddo</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="modelo_fragment">Fragmento Modelo</string>
+
+    <!-- Opções do meu lateral Drawer-->
+    <string name="fragmento_preto">Fragmento Preto</string>
+    <string name="fragmento_adicionar_cliente">Adicionar Clientes</string>
+    <string name="fragmento_vermelho">Fragmento Vermelho</string>
+    <string name="fragmento_azul">Fragmento Azul</string>
+
+    <!-- Opções do meu lateral principal-->
+    <string name="action_settings">Sair</string>
+    <string name="meu_perfil">Meu Perfil</string>
+
+    <!-- Texto para o layout adicionar novo cliente -->
+    <string name="novoCliente">Adicionar novo Cliente</string>
+    <string name="termos_de_uso">Termos De Uso</string>
+    <string name="salvar">Salvar</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="nome_completo">Nome Completo</string>
+    <string name="telefone">Telefone</string>
+    <string name="cep">Cep</string>
+    <string name="logradouro">Logradouro</string>
+    <string name="numero">Numero</string>
+    <string name="bairro">Bairro</string>
+    <string name="cidade">Cidade</string>
+    <string name="estado">Estado</string>
+    <string name="email">Email</string>
+
+
+</resources>
