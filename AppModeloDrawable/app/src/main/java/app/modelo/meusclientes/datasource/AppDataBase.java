@@ -167,6 +167,7 @@ public class AppDataBase extends SQLiteOpenHelper {
                 obj.setId(cursor.getInt(cursor.getColumnIndex(ClienteDataModel.ID)));
                 obj.setNome(cursor.getString(cursor.getColumnIndex(ClienteDataModel.NOME)));
                 obj.setEmail(cursor.getString(cursor.getColumnIndex(ClienteDataModel.EMAIL)));
+                obj.setTelefone(cursor.getString(cursor.getColumnIndex(ClienteDataModel.TELEFONE)));
 
                 clientes.add(obj);
 

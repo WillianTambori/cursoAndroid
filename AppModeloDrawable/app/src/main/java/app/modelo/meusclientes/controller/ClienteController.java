@@ -103,7 +103,7 @@ public class ClienteController extends AppDataBase implements ICrud<Cliente> {
 
         List<String> clientes = new ArrayList<>();
         for (Cliente obj: listar()){
-            clientes.add(obj.getId()+", "+obj.getNome());
+            clientes.add(obj.getId()+", "+obj.getNome()+", "+obj.getTelefone());
         }
 
         return  clientes;
