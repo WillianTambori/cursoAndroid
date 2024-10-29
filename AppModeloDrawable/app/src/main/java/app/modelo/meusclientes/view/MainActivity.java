@@ -176,10 +176,15 @@ public class MainActivity extends AppCompatActivity
 
             fragmentManager.beginTransaction().replace(R.id.content_fragment, new ModeloAzulFragment()).commit();
 
-        }else if (id == R.id.nav_adicionar_clientes){
+        } else if (id == R.id.nav_adicionar_clientes){
 
             setTitle("Novo Cliente");
             fragmentManager.beginTransaction().replace(R.id.content_fragment, new AdicionarClienteFragment()).commit();
+
+        } else if (id == R.id.nav_adicionar_clientes_cards){
+
+            setTitle("Novo Cliente (Cards)");
+            fragmentManager.beginTransaction().replace(R.id.content_fragment, new AdicionarClienteCardsFragment()).commit();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

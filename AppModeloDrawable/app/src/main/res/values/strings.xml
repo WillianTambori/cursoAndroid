@@ -11,8 +11,9 @@
 
     <!-- Opções do meu lateral Drawer-->
     <string name="fragmento_adicionar_cliente">Adicionar Clientes</string>
+    <string name="fragmento_adicionar_cliente_cards">Adicionar Clientes (Cards)</string>
     <string name="fragmento_listar_clientes">Listar clientes</string>
-    <string name="fragmento_listar_clientes_cards">Listar clientes cards</string>
+    <string name="fragmento_listar_clientes_cards">Listar Clientes (Cards)</string>
 
     <string name="fragmento_preto">Fragmento Preto</string>
     <string name="fragmento_vermelho">Fragmento Vermelho</string>
@@ -37,6 +38,8 @@
     <string name="estado">Estado</string>
     <string name="email">Email</string>
     <string name="pesquisar_um_nome">Pesquisar um nome....</string>
+    <string name="txtPerfil_e_Contato">Perfil e Contato</string>
+    <string name="txtEndereco">Endereço</string>
 
 
 </resources>
