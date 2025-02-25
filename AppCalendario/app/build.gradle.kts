@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "devandroid.tambori.appcalendario"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "devandroid.tambori.appcalendario"
