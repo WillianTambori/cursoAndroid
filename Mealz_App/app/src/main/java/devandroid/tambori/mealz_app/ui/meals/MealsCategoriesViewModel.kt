@@ -3,6 +3,7 @@ package devandroid.tambori.mealz_app.ui.meals
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import devandroid.tambori.mealz_app.model.MealsRepository
 import devandroid.tambori.mealz_app.model.response.MealResponse
 import kotlinx.coroutines.CoroutineScope
@@ -10,13 +11,11 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
-class MealsCategoriesViewModel (
-    private val repository: MealsRepository = MealsRepository()
-):ViewModel() {
-    private val mealsJob = Job()
+class MealsCategoriesViewModel (private val repository: MealsRepository = MealsRepository()):ViewModel() {
+
     init {
-        val scope = CoroutineScope(mealsJob + Dispatchers.IO)
-        scope.launch() {
+
+        viewModelScope.launch(Dispatchers.IO) {
             val meals = getMeals()
             mealsState.value = meals
         }
@@ -30,8 +29,4 @@ class MealsCategoriesViewModel (
         return repository.getMeals().categories
     }
 
-    override fun onCleared() {
-        super.onCleared()
-        mealsJob.cancel()
-    }
 }
