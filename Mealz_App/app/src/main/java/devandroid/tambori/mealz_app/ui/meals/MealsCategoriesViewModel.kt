@@ -11,7 +11,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
-class MealsCategoriesViewModel (private val repository: MealsRepository = MealsRepository()):ViewModel() {
+class MealsCategoriesViewModel (private val repository: MealsRepository = MealsRepository.getInstance()):ViewModel() {
 
     init {
 
@@ -25,7 +25,7 @@ class MealsCategoriesViewModel (private val repository: MealsRepository = MealsR
 
     val mealsState: MutableState<List<MealResponse>> =  mutableStateOf(emptyList<MealResponse>())
 
-    suspend fun getMeals(): List<MealResponse> {
+    private suspend fun getMeals(): List<MealResponse> {
         return repository.getMeals().categories
     }
 
