@@ -7,11 +7,16 @@ import androidx.compose.animation.core.updateTransition
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -24,61 +29,72 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.max
+import androidx.compose.ui.unit.min
 import coil.Coil
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import coil.transform.CircleCropTransformation
 import devandroid.tambori.mealz_app.model.response.MealResponse
+import kotlin.math.min
 import android.service.autofill.Transformation as Transformation1
 
 @Composable
 
 fun MealDetailsScreen(meal: MealResponse?) {
-    var profilePictureState by remember { mutableStateOf(MealProfileState.Normal)}
-    val transition = updateTransition(targetState = profilePictureState, label = "")
-    val imageSizeDp by transition.animateDp(targetValueByState = {it.size}, label = "")
-    val color by transition.animateColor(targetValueByState = {it.color}, label = "")
-    val widthSize by transition.animateDp(targetValueByState = {it.borderWidth}, label = "")
+    val scrollState = rememberScrollState()
+    val offset = min(1f,1 - (scrollState.value/600f))
+    val size by animateDpAsState(targetValue = max(100.dp, 200.dp * offset), label = "")
+    Surface(color = MaterialTheme.colorScheme.background) {
+        Column {
+            Surface(tonalElevation = 4.dp) {
+                Row(modifier = Modifier.fillMaxWidth()) {
+                    Card(
+                        modifier = Modifier.padding(16.dp),
+                        shape = CircleShape,
+                        border = BorderStroke(
+                            width = 2.dp,
+                            color = Color.Green
+                        )
+                    ) {
+                        AsyncImage(
+                            model = ImageRequest.Builder(LocalContext.current)
+                                .data(meal?.imageUrl)
+                                .transformations(CircleCropTransformation()) // Transformação recomendada
+                                .build(),
+                            contentDescription = null,
+                            modifier = Modifier
+                                .size(size)
+                                .padding(8.dp)
 
-    Column {
-        Row {
-            Card(modifier = Modifier.padding(16.dp),
-                shape = CircleShape,
-                border = BorderStroke(
-                    width = widthSize,
-                    color = color
-                )
-            ) {
-                AsyncImage(
-                    model = ImageRequest.Builder(LocalContext.current)
-                        .data(meal?.imageUrl)
-                        .transformations(CircleCropTransformation()) // Transformação recomendada
-                        .build(),
-                    contentDescription = null,
-                    modifier = Modifier
-                        .size(imageSizeDp)
-                        .padding(8.dp)
+                        )
+                    }
+                    Text(
+                        text = meal?.name ?: "default name",
+                        modifier = Modifier
+                            .padding(16.dp)
+                            .align(Alignment.CenterVertically)
+                    )
+                }
 
-                )
             }
-        Text(
-            text = meal?.name?:"default name",
-            modifier = Modifier
-                .padding(16.dp)
-                .align(Alignment.CenterVertically)
-            )
-        }
-        Button(
-            modifier = Modifier
-                .padding(16.dp),
-            onClick = {
-                profilePictureState = if(profilePictureState == MealProfileState.Normal)
-                    MealProfileState.Expanded
-                else
-                    MealProfileState.Normal
-             }) {
-            Text(text = "Change state of meal profile picture")
+            Column(modifier = Modifier.verticalScroll(scrollState)) {
+                Text(text = "this is a text element", modifier = Modifier.padding(32.dp))
+                Text(text = "this is a text element", modifier = Modifier.padding(32.dp))
+                Text(text = "this is a text element", modifier = Modifier.padding(32.dp))
+                Text(text = "this is a text element", modifier = Modifier.padding(32.dp))
+                Text(text = "this is a text element", modifier = Modifier.padding(32.dp))
+                Text(text = "this is a text element", modifier = Modifier.padding(32.dp))
+                Text(text = "this is a text element", modifier = Modifier.padding(32.dp))
+                Text(text = "this is a text element", modifier = Modifier.padding(32.dp))
+                Text(text = "this is a text element", modifier = Modifier.padding(32.dp))
+                Text(text = "this is a text element", modifier = Modifier.padding(32.dp))
+                Text(text = "this is a text element", modifier = Modifier.padding(32.dp))
+                Text(text = "this is a text element", modifier = Modifier.padding(32.dp))
+                Text(text = "this is a text element", modifier = Modifier.padding(32.dp))
 
+
+            }
         }
     }
 }
@@ -87,8 +103,8 @@ enum class MealProfileState(
     val color: Color,
     val size: Dp,
     val borderWidth: Dp
-){
-    Normal(Color.Magenta,120.dp, 8.dp),
-    Expanded(Color.Green,200.dp, 24.dp)
+) {
+    Normal(Color.Magenta, 120.dp, 8.dp),
+    Expanded(Color.Green, 200.dp, 24.dp)
 }
 
